@@ -26,6 +26,7 @@ import {
   getConfig,
   getFacetFields,
 } from "./config/config-helper";
+// import { Navbar } from "./Components/Navbar";
 
 const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
 const connector = new AppSearchAPIConnector({
@@ -75,52 +76,55 @@ export default function App() {
   };
 
   return (
-    <SearchProvider config={config}>
-      <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
-        {({ wasSearched }) => {
-          return (
-            <div className="App">
-              <ErrorBoundary>
-                <Layout
-                  header={<SearchBox autocompleteSuggestions={true} />}
-                  sideContent={
-                    <div className={Appstyle.Sort_Filter_Bar}>
-                      {wasSearched && (
-                        <Sorting
-                          label={"Sort by"}
-                          sortOptions={buildSortOptionsFromConfig()}
-                        />
-                      )}
-                      {getFacetFields().map((field) => {
-                        return (
-                          <Facet key={field} field={field} label={field} />
-                        );
-                      })}
-                    </div>
-                  }
-                  // bodyContent={
-                  //   <Results
-                  //     titleField={getConfig().titleField}
-                  //     urlField={getConfig().urlField}
-                  //     thumbnailField={getConfig().thumbnailField}
-                  //     shouldTrackClickThrough={true}
-                  //   />
-                  // }
+    <>
+      {/* <Navbar /> */}
+      <SearchProvider config={config}>
+        <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
+          {({ wasSearched }) => {
+            return (
+              <div className="App">
+                <ErrorBoundary>
+                  <Layout
+                    header={<SearchBox autocompleteSuggestions={true} />}
+                    sideContent={
+                      <div className={Appstyle.Sort_Filter_Bar}>
+                        {wasSearched && (
+                          <Sorting
+                            label={"Sort by"}
+                            sortOptions={buildSortOptionsFromConfig()}
+                          />
+                        )}
+                        {getFacetFields().map((field) => {
+                          return (
+                            <Facet key={field} field={field} label={field} />
+                          );
+                        })}
+                      </div>
+                    }
+                    // bodyContent={
+                    //   <Results
+                    //     titleField={getConfig().titleField}
+                    //     urlField={getConfig().urlField}
+                    //     thumbnailField={getConfig().thumbnailField}
+                    //     shouldTrackClickThrough={true}
+                    //   />
+                    // }
 
-                  bodyContent={<Results resultView={CustomResultView} />}
-                  bodyHeader={
-                    <React.Fragment>
-                      {wasSearched && <PagingInfo />}
-                      {wasSearched && <ResultsPerPage />}
-                    </React.Fragment>
-                  }
-                  bodyFooter={<Paging />}
-                />
-              </ErrorBoundary>
-            </div>
-          );
-        }}
-      </WithSearch>
-    </SearchProvider>
+                    bodyContent={<Results resultView={CustomResultView} />}
+                    bodyHeader={
+                      <React.Fragment>
+                        {wasSearched && <PagingInfo />}
+                        {wasSearched && <ResultsPerPage />}
+                      </React.Fragment>
+                    }
+                    bodyFooter={<Paging />}
+                  />
+                </ErrorBoundary>
+              </div>
+            );
+          }}
+        </WithSearch>
+      </SearchProvider>
+    </>
   );
 }

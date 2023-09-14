@@ -1,3 +1,10 @@
+Start Elastic search,Kibana and enterprise search
+Got to their respective folders and run
+
+- ./bin/elasticsearch
+- ./bin/kibana
+- ./bin/enterprise-search
+
 ## Contents
 
 - [Getting started](#getting-started-)
@@ -16,6 +23,7 @@ To set up and run this project, follow the instructions below.
 Requires [npm](https://www.npmjs.com/).
 
 Dependencies:
+
 - Node v16.13.0
 
 One can leverage [NVM](https://github.com/nvm-sh/nvm) to install Node before proceeding to start the application by running the following commands:
@@ -24,7 +32,7 @@ One can leverage [NVM](https://github.com/nvm-sh/nvm) to install Node before pro
 # Run this to install Node 16.13.0
 nvm install 16.13.0
 
-# Run this to use the installed Node version 
+# Run this to use the installed Node version
 nvm use 16.13.0
 ```
 
@@ -60,7 +68,7 @@ The following is a complete list of options available for configuration in [engi
 | option               | value type    | required/optional | source                                                                                                                                                                                          |
 | -------------------- | ------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `engineName`         | String        | required          | Found in your App Search Dashboard.                                                                                                                                                             |
-| `endpointBase`       | String        | required*         | (*) Elastic Enterprise Search deployment URL, example: "http://127.0.0.1:3002".                                                                                                                 |
+| `endpointBase`       | String        | required\*        | (\*) Elastic Enterprise Search deployment URL, example: "http://127.0.0.1:3002".                                                                                                                |
 | `searchKey`          | String        | required          | Found in your App Search Dashboard.                                                                                                                                                             |
 | `searchFields`       | Array[String] | required          | A list of fields that will be searched with your search term.                                                                                                                                   |
 | `resultFields`       | Array[String] | required          | A list of fields that will be displayed within your results.                                                                                                                                    |
@@ -73,17 +81,20 @@ The following is a complete list of options available for configuration in [engi
 ## Building and embedding
 
 To embed this application into a website, it can be built into static assets using the following command:
+
 ```
 npm run build
 ```
 
 This will create two files in the `build` directory:
+
 ```
 build/static/js/main.<hash>.js
 build/static/css/main.<hash>.css
 ```
 
 Include the built static assets as well as an element with `id="root"`. For example:
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -139,7 +150,6 @@ what you'll need can be found in the Search UI documentation.
 ### Where do I report issues with this application?
 
 If something is not working as expected, please open an [issue](https://github.com/elastic/app-search-reference-ui-react/issues/new).
-
 
 ### Where else can I go to get help?
 
