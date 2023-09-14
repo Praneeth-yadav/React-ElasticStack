@@ -26,7 +26,8 @@ import {
   getConfig,
   getFacetFields,
 } from "./config/config-helper";
-// import { Navbar } from "./Components/Navbar";
+import { Navbar } from "./Components/Navbar";
+import { AddtoCart } from "./Components/AddtoCart";
 
 const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
 const connector = new AppSearchAPIConnector({
@@ -71,13 +72,16 @@ export default function App() {
             dangerouslySetInnerHTML={{ __html: result.description.snippet }}
           ></div>
         </div>
+        <div>
+          <AddtoCart />
+        </div>
       </li>
     );
   };
 
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <SearchProvider config={config}>
         <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
           {({ wasSearched }) => {
