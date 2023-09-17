@@ -4,15 +4,11 @@
   padding: 1rem;
   flex-direction: row;
   justify-content: end;
+  gap: 10px;
 }
 .wel {
   margin-right: auto;
 }
 a {
   font-size: larger;
-}
-.btn1,
-.btn2,
-.btn3 {
-  margin-right: 10px;
 }

@@ -14,7 +14,6 @@ export function Navbar({ name = "Test Default" }) {
         </div>
         <Button
           variant="contained"
-          colorScheme="blue"
           className={navbarStyle.btn1}
           onClick={() => {
             navigate(
@@ -29,7 +28,6 @@ export function Navbar({ name = "Test Default" }) {
         </Button>
         <Button
           variant="contained"
-          colorScheme="blue"
           className={navbarStyle.btn2}
           onClick={() => {
             navigate(
@@ -45,7 +43,6 @@ export function Navbar({ name = "Test Default" }) {
 
         <Button
           variant="contained"
-          colorScheme="blue"
           className={navbarStyle.btn3}
           onClick={() => {
             navigate("/", { replace: true });

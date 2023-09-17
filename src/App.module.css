@@ -1,6 +1,18 @@
-.style {
-  background-color: aqua;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
+.sui_result__price {
+  margin-left: 10vb;
+}
+.imageIncDec {
+  display: flex;
+  margin-left: 10px;
+  gap: 5px;
+}
+
+
+.sui_result__actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sui_result__actions_right {
+  margin-left: auto;
 }
